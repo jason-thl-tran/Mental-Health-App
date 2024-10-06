@@ -29,7 +29,7 @@ export default function RootLayout() {
         }}
       />
       <Tabs.Screen
-        name="trial"
+        name="mood"
         options={{
           title: "Mood",
           tabBarIcon: ({ color, focused }) => (
@@ -47,6 +47,15 @@ export default function RootLayout() {
           title: "Journal",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? "journal" : "journal"} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="about"
+        options={{
+          title: "About",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? "information" : "information"} color={color} />
           ),
         }}
       />
