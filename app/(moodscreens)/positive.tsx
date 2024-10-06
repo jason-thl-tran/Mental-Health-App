@@ -5,18 +5,21 @@ import { TouchableOpacity } from "react-native";
 import React from "react";
 //import {ArrowBack} from 'components/common/base/arrow-back';
 
-export default function Trial() {
+export default function Positive() {
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "rgba(212, 237, 205, 1)"
       }}
     >
+      <Text style={stylesheet.journal}>{`Positive`}</Text>
       {/* <View style={stylesheet.root}> */}
       <View style={stylesheet.buttonbox}>
         <FlatList
+          style={{ paddingTop: 150 }}
           data={[
             { key: "Happy" },
             { key: "Energetic" },
@@ -31,6 +34,7 @@ export default function Trial() {
               <Text style={stylesheet.button}> {item.key} </Text>
             </View>
           )}
+          ItemSeparatorComponent={() => <View style={{ height: 24 }} />}
         ></FlatList>
       </View>
     </View>
@@ -93,6 +97,18 @@ const stylesheet = StyleSheet.create({
     color: "rgba(245, 245, 245, 1)",
     //fontFamily: "Nunito Sans",
     fontSize: 32,
+    fontWeight: 400,
+  },
+  journal: {
+    position: "absolute",
+    flexShrink: 0,
+    top: 28,
+    left: 138,
+    width:"auto",
+    height: 65,
+    textAlign: "center",
+    color: "rgba(0, 0, 0, 1)",
+    fontSize: 48,
     fontWeight: 400,
   },
 });

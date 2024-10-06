@@ -7,19 +7,21 @@ export default function Journal() {
   const [inputHeight, setInputHeight] = useState(40);
   return (
     <View style={[styles.iPhone16Plus5Container, { height: inputHeight }]}>
-        <View style={styles.rectangle8}>
-
+      <View style={styles.rectangle8}>
         <TextInput
-        style={styles.typing}
-        placeholder="Type here..."
-        multiline={true}
-        onContentSizeChange={(event) => {
-            setInputHeight(event.nativeEvent.contentSize.height);}}>
-        {/* onChangeText={(input) => setText(input)} */}
-        {/* value={text}> */}
-      </TextInput> </View>
+          style={styles.typing}
+          placeholder="Type here..."
+          multiline={true}
+          onContentSizeChange={(event) => {
+            setInputHeight(event.nativeEvent.contentSize.height);
+          }}
+        >
+          {/* onChangeText={(input) => setText(input)} */}
+          {/* value={text}> */}
+        </TextInput>{" "}
+      </View>
       {/* <Text style={styles.displayText}>Your Type</Text> */}
-      
+
       {/* Visualwind:: can be replaced with <Arrow_back  /> */}
       <View style={styles.arrow_back}>
         <Svg
@@ -44,19 +46,10 @@ export default function Journal() {
 
 const styles = StyleSheet.create({
   iPhone16Plus5Container: {
-    position: "relative",
-    flexShrink: 0,
-    height: 932,
-    width: 430,
-    backgroundColor: "rgba(255, 255, 255, 1)",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
     flex: 1,
-    rowGap: 0,
-    borderRadius: 0,
-    padding:20
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(243, 236, 255, 1)",
   },
   rectangle8: {
     position: "absolute",
@@ -69,7 +62,7 @@ const styles = StyleSheet.create({
     height: 707,
     backgroundColor: "rgba(217, 217, 217, 1)",
     borderRadius: 24,
-    padding: 12
+    padding: 12,
   },
   arrow_back: {
     position: "absolute",
@@ -105,14 +98,13 @@ const styles = StyleSheet.create({
     fontWeight: 400,
   },
   typing: {
-    width:337,
+    width: 337,
     flexGrow: 1,
     borderColor: "gray",
     borderWidth: 1,
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 16,
-    
   },
   displayText: {
     marginTop: 20,
