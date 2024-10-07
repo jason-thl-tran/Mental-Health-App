@@ -8,13 +8,13 @@ export default function IPhone16Plus14() {
       <Text style={styles.about}>{`About`}</Text>
       <Text
         style={
-          styles.moodFlowisawellnessappdesignedtoenhanceyouremotionalwellbeingthroughinteractiveexperiencesOurgoalistoempoweryoutounderstandandimproveyouremotionalstatesfosteringmindfulnessandpositivityineverydaylife
+          styles.aboutText
         }
       >
         {`Mood Flow is a wellness app designed to enhance your emotional well-being through interactive experiences. \n\nOur goal is to empower you to understand and improve your emotional states, fostering mindfulness and positivity in everyday life.`}
       </Text>
-      <Text style={styles.developersZoieBonnetteJasonTran}>
-        {`Developers: Zoie Bonnette, Jason Tran `}
+      <Text style={styles.developers}>
+        {`Developers: Zoie Bonnette, Jason Tran, Mac Diby`}
         <Text
           style={{
             textAlign: "left",
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight: 400,
   },
-  moodFlowisawellnessappdesignedtoenhanceyouremotionalwellbeingthroughinteractiveexperiencesOurgoalistoempoweryoutounderstandandimproveyouremotionalstatesfosteringmindfulnessandpositivityineverydaylife:
+  aboutText:
     {
       position: "absolute",
       flexShrink: 0,
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
       fontSize: 32,
       fontWeight: 400,
     },
-  developersZoieBonnetteJasonTran: {
+  developers: {
     position: "absolute",
     flexShrink: 0,
     top: 745,
