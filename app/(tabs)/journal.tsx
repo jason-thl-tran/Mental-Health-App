@@ -7,19 +7,17 @@ export default function Journal() {
   const [loading, setLoading] = useState(false); 
   const [inputHeight, setInputHeight] = useState(40); 
   const [mode, setMode] = useState('ai'); 
+
   const handleSend = async () => {
     if (userInput.trim() === '') return; 
 
     if (mode === 'free') {
-      
       setMessages((prevMessages) => [...prevMessages, { type: 'user', text: userInput }]);
       setUserInput(''); 
       return;
     }
 
-   
     setMessages((prevMessages) => [...prevMessages, { type: 'user', text: userInput }]);
-
     setLoading(true); 
     try {
       const response = await fetch('http://localhost:3000/journal', {
@@ -42,6 +40,7 @@ export default function Journal() {
   const handleModeSwitch = (newMode) => {
     setMode(newMode); 
     setMessages([]); 
+    setUserInput('');
   };
 
   return (
@@ -64,7 +63,7 @@ export default function Journal() {
         </TouchableOpacity>
       </View>
 
-      {/* Display messages */}
+      {}
       <ScrollView contentContainerStyle={styles.chatContainer}>
         {messages.map((message, index) => (
           <View
@@ -80,21 +79,37 @@ export default function Journal() {
       </ScrollView>
 
       {}
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={[styles.input, { height: Math.max(40, inputHeight) }]}
-          placeholder={mode === 'free' ? "Write your thoughts..." : "How are you feeling today?"}
-          multiline={true}
-          value={userInput}
-          onChangeText={(text) => setUserInput(text)}
-          onContentSizeChange={(event) => setInputHeight(event.nativeEvent.contentSize.height)}
-        />
-        <TouchableOpacity style={styles.button} onPress={handleSend}>
-          <Text style={styles.buttonText}>
-            {mode === 'free' ? "Speak freely" : "Send to Assistant"}
-          </Text>
-        </TouchableOpacity>
-      </View>
+      {mode === 'free' && (
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={[styles.freeInput, { height: 800 }]} 
+            placeholder="Write your thoughts..."
+            multiline={true}
+            value={userInput}
+            onChangeText={(text) => setUserInput(text)}
+          />
+          <TouchableOpacity style={[styles.button,{ marginTop:400 }]} onPress={handleSend}>
+            <Text style={[styles.buttonText]}>Write</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
+      {}
+      {mode === 'ai' && (
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={[styles.input, { height: Math.max(40, inputHeight) }]}
+            placeholder="How are you feeling today?"
+            multiline={true}
+            value={userInput}
+            onChangeText={(text) => setUserInput(text)}
+            onContentSizeChange={(event) => setInputHeight(event.nativeEvent.contentSize.height)}
+          />
+          <TouchableOpacity style={styles.button} onPress={handleSend}>
+            <Text style={styles.buttonText}>Send</Text>
+          </TouchableOpacity>
+        </View>
+      )}
 
       {loading && <Text style={styles.loading}>Communicating with my mental assistant...</Text>}
     </View>
@@ -160,6 +175,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderTopWidth: 1,
     borderColor: '#ddd',
+  },
+  freeInput: {
+    flex: 1,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 20,
+    backgroundColor: '#fff',
+    marginRight: 10,
   },
   input: {
     flex: 1,
