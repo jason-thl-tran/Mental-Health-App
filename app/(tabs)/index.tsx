@@ -2,27 +2,21 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 export default function IPhone16Plus15() {
-    return (
-        <View style={styles.iPhone16Plus15Container}>
-            <Text style={styles.moodFlow}>
-                {`MoodFlow`}
-            </Text>
-            <Text style={styles.beginyourjourneynow}>
-                {`Begin your journey now`}
-            </Text>
-            {/* Visualwind:: can be replaced with <Button style={"filled"} state={"enabled"} showIcon={"false"} /> */}
-            <View style={styles.button}>
-                <View style={styles.statelayer}>
-                    <Text style={styles.labeltext}>
-                        {/* You can add button text here if needed */}
-                    </Text>
-                </View>
-            </View>
-            <Text style={styles.letsGO}>
-                {`Lets GO`}
-            </Text>
+  return (
+    <View style={styles.iPhone16Plus15Container}>
+      <Text style={styles.moodFlow}>MoodFlow</Text>
+      <Text style={styles.beginyourjourneynow}>Begin your journey now</Text>
+      {/* Visualwind:: can be replaced with <Button style={"filled"} state={"enabled"} showIcon={"false"} /> */}
+      <View style={styles.button}>
+        <View style={styles.statelayer}>
+          <Text style={styles.labeltext}>
+            {/* You can add button text here if needed */}
+          </Text>
         </View>
-    );
+      </View>
+      <Text style={styles.letsGO}>Lets GO</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -37,7 +31,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     rowGap: 0,
     borderRadius: 0,
-    justifyContent:"center",
+    justifyContent: "center",
     alignContent: "center",
     flex: 1,
   },

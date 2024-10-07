@@ -97,7 +97,7 @@ const stylesheet = StyleSheet.create({
     color: "rgba(245, 245, 245, 1)",
     //fontFamily: "Nunito Sans",
     fontSize: 32,
-    fontWeight: 400,
+    fontWeight: "400",
   },
   journal: {
     position: "absolute",
@@ -109,6 +109,6 @@ const stylesheet = StyleSheet.create({
     textAlign: "center",
     color: "rgba(0, 0, 0, 1)",
     fontSize: 48,
-    fontWeight: 400,
+    fontWeight: "400",
   },
 });

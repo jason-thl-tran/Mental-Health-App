@@ -5,12 +5,12 @@ import { Svg, Path } from "react-native-svg";
 export default function IPhone16Plus14() {
   return (
     <View style={styles.iPhone16Plus14Container}>
-      <Text style={styles.about}>{`About`}</Text>
+      <Text style={styles.about}>About</Text>
       <Text style={styles.descriptionText}>
         {`Mood Flow is a wellness app designed to enhance your emotional well-being through interactive experiences. \n\nOur goal is to empower you to understand and improve your emotional states, fostering mindfulness and positivity in everyday life.`}
       </Text>
       <Text style={styles.developers}>
-        {`Developers: Zoie Bonnette, Jason Tran, Mac Diby `}
+        Developers: Zoie Bonnette, Jason Tran, Mac Diby
       </Text>
       <View style={styles.arrow_back}>
         <Svg

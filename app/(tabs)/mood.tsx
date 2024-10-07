@@ -15,7 +15,7 @@ export default function Mood() {
         backgroundColor: "rgba(243, 236, 255, 1)",
       }}
     >
-      <Text style={stylesheet.journal}>{`How are you feeling today?`}</Text>
+      <Text style={stylesheet.journal}>How are you feeling today?</Text>
       {/* <View style={stylesheet.root}> */}
       <View style={stylesheet.buttonbox}>
         <FlatList
@@ -95,7 +95,7 @@ const stylesheet = StyleSheet.create({
     textAlign: "left",
     color: "rgba(245, 245, 245, 1)",
     fontSize: 32,
-    fontWeight: 400,
+    fontWeight: "400",
   },
   journal: {
     position: "absolute",
@@ -107,6 +107,6 @@ const stylesheet = StyleSheet.create({
     textAlign: "center",
     color: "rgba(0, 0, 0, 1)",
     fontSize: 48,
-    fontWeight: 400,
+    fontWeight: "400",
   },
 });
