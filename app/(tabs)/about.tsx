@@ -8,20 +8,19 @@ export default function IPhone16Plus14() {
             <Text style={styles.about}>
                 {`About`}
             </Text>
-            <Text style={styles.moodFlowisawellnessappdesignedtoenhanceyouremotionalwellbeingthroughinteractiveexperiencesOurgoalistoempoweryoutounderstandandimproveyouremotionalstatesfosteringmindfulnessandpositivityineverydaylife}>
+            <Text style={styles.descriptionText}>
                 {`Mood Flow is a wellness app designed to enhance your emotional well-being through interactive experiences. \n\nOur goal is to empower you to understand and improve your emotional states, fostering mindfulness and positivity in everyday life.`}
             </Text>
-            <Text style={styles.developersZoieBonnetteJasonTran}>
-                {`Developers: Zoie Bonnette, Jason Tran `}<Text style={{"textAlign":"left","color":"rgba(0, 0, 0, 1)","fontFamily":"Nunito Sans","fontSize":32,"fontWeight":400}}>{` `}</Text>
+            <Text style={styles.developers}>
+                {`Developers: Zoie Bonnette, Jason Tran `}
             </Text>
-            {/* Visualwind:: can be replaced with <Arrow_back  /> */}
             <View style={styles.arrow_back}>
-                <Svg style={styles.icon} width="16" height="16" viewBox="0 0 16 16" fill="none" >
-<Path d="M3.825 9L9.425 14.6L8 16L0 8L8 0L9.425 1.4L3.825 7H16V9H3.825Z" fill="#1D1B20"/>
-</Svg>
-
+                <Svg style={styles.icon} width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <Path d="M3.825 9L9.425 14.6L8 16L0 8L8 0L9.425 1.4L3.825 7H16V9H3.825Z" fill="#1D1B20"/>
+                </Svg>
             </View>
-        </View>  )
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -47,9 +46,10 @@ const styles = StyleSheet.create({
         textAlign: "center",
         color: "rgba(0, 0, 0, 1)",
         fontSize: 48,
-        fontWeight: 400
+        fontFamily: 'Nunito Sans',
+        fontWeight: '400',
     },
-    moodFlowisawellnessappdesignedtoenhanceyouremotionalwellbeingthroughinteractiveexperiencesOurgoalistoempoweryoutounderstandandimproveyouremotionalstatesfosteringmindfulnessandpositivityineverydaylife: {
+    descriptionText: {
         position: "absolute",
         flexShrink: 0,
         top: 147,
@@ -59,9 +59,10 @@ const styles = StyleSheet.create({
         textAlign: "left",
         color: "rgba(0, 0, 0, 1)",
         fontSize: 32,
-        fontWeight: 400
+        fontFamily: 'Nunito Sans',
+        fontWeight: '400',
     },
-    developersZoieBonnetteJasonTran: {
+    developers: {
         position: "absolute",
         flexShrink: 0,
         top: 745,
@@ -71,7 +72,8 @@ const styles = StyleSheet.create({
         textAlign: "left",
         color: "rgba(0, 0, 0, 1)",
         fontSize: 20,
-        fontWeight: 400
+        fontFamily: 'Nunito Sans',
+        fontWeight: '400',
     },
     arrow_back: {
         position: "absolute",

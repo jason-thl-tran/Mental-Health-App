@@ -4,6 +4,9 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ## Get started
 
+First have Node.js installed then cd to project directory to begin installation.
+Optionally, install expo go on a mobile device and scan the QR code after starting the app to preview on mobile.
+
 1. Install dependencies
 
    ```bash
