@@ -50,6 +50,9 @@ const stylesheet = StyleSheet.create({
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     backgroundColor: "rgba(255, 255, 255, 1)",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   rectangle10: {
     width: 393,
@@ -63,9 +66,12 @@ const stylesheet = StyleSheet.create({
     shadowColor: "rgba(0, 0, 0, 0.20000000298023224)",
     shadowRadius: 50,
     shadowOffset: { width: 0, height: 4 },
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   buttonContainer: {
-    //position: "relative",
+    position: "relative",
     flexShrink: 0,
     height: 67,
     width: 198,

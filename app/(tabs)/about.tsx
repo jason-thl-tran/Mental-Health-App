@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255, 255, 255, 1)",
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
+    // alignItems: "flex-start",
     rowGap: 0,
     borderRadius: 0,
     justifyContent: "center",
-    alignContent: "center",
+    alignItems: "center",
     flex: 1,
   },
   about: {

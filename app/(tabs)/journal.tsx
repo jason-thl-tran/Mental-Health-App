@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { Svg, Path } from "react-native-svg";
 
 export default function Journal() {
@@ -7,19 +14,22 @@ export default function Journal() {
   const [inputHeight, setInputHeight] = useState(40);
   return (
     <View style={[styles.iPhone16Plus5Container, { height: inputHeight }]}>
-      <View style={styles.rectangle8}>
-        <TextInput
-          style={styles.typing}
-          placeholder="Type here..."
-          multiline={true}
-          onContentSizeChange={(event) => {
-            setInputHeight(event.nativeEvent.contentSize.height);
-          }}
-        >
-          {/* onChangeText={(input) => setText(input)} */}
-          {/* value={text}> */}
-        </TextInput>{" "}
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.rectangle8}>
+          <TextInput
+            style={styles.typing}
+            placeholder="Type here..."
+            multiline={true}
+            onContentSizeChange={(event) => {
+              setInputHeight(event.nativeEvent.contentSize.height);
+            }}
+          >
+            {/* onChangeText={(input) => setText(input)} */}
+            {/* value={text}> */}
+          </TextInput>
+        </View>
+      </TouchableWithoutFeedback>
+
       {/* <Text style={styles.displayText}>Your Type</Text> */}
 
       {/* Visualwind:: can be replaced with <Arrow_back  /> */}
@@ -95,7 +105,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "rgba(0, 0, 0, 1)",
     fontSize: 48,
-    fontWeight: 400,
+    fontWeight: "400",
   },
   typing: {
     width: 337,
