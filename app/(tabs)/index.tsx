@@ -2,19 +2,27 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 export default function IPhone16Plus15() {
-  return (
-    <View style={styles.iPhone16Plus15Container}>
-      <View style={styles.moodFlow}>{`MoodFlow`}</View>
-      <View style={styles.beginyourjourneynow}>{`Begin your journey now`}</View>
-      {/* Visualwind:: can be replaced with <Button style={"filled"} state={"enabled"} showIcon={"false"} /> */}
-      <View style={styles.button}>
-        <View style={styles.statelayer}>
-          <Text style={styles.labeltext}></Text>
+    return (
+        <View style={styles.iPhone16Plus15Container}>
+            <Text style={styles.moodFlow}>
+                {`MoodFlow`}
+            </Text>
+            <Text style={styles.beginyourjourneynow}>
+                {`Begin your journey now`}
+            </Text>
+            {/* Visualwind:: can be replaced with <Button style={"filled"} state={"enabled"} showIcon={"false"} /> */}
+            <View style={styles.button}>
+                <View style={styles.statelayer}>
+                    <Text style={styles.labeltext}>
+                        {/* You can add button text here if needed */}
+                    </Text>
+                </View>
+            </View>
+            <Text style={styles.letsGO}>
+                {`Lets GO`}
+            </Text>
         </View>
-      </View>
-      <View style={styles.letsGO}>{`Lets GO`}</View>
-    </View>
-  );
+    );
 }
 
 const styles = StyleSheet.create({
@@ -43,7 +51,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "rgba(0, 0, 0, 1)",
     fontSize: 57,
-    fontWeight: 400,
+    fontWeight: "400", // Use string values for fontWeight
     letterSpacing: -0.25,
     lineHeight: 64,
   },
@@ -57,7 +65,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "rgba(0, 0, 0, 1)",
     fontSize: 32,
-    fontWeight: 400,
+    fontWeight: "400",
     letterSpacing: 0.25,
     lineHeight: 64,
   },
@@ -103,7 +111,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "rgba(255, 255, 255, 1)",
     fontSize: 15,
-    fontWeight: 700,
+    fontWeight: "700", // Use string values for fontWeight
     letterSpacing: -0.25,
     lineHeight: 64,
     //textShadow: 0 4 4 rgba(0, 0, 0, 0.25)
