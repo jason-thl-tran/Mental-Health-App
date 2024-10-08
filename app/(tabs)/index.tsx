@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default function IPhone16Plus15() {
+export default function Home() {
   return (
     <View style={styles.iPhone16Plus15Container}>
       <Text style={styles.moodFlow}>MoodFlow</Text>

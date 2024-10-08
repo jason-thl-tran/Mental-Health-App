@@ -5,27 +5,27 @@ import { TouchableOpacity } from "react-native";
 import React from "react";
 //import {ArrowBack} from 'components/common/base/arrow-back';
 
-export default function Positive() {
+export default function Negative() {
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(212, 237, 205, 1)"
+        backgroundColor: "rgba(255, 224, 224, 1)"
       }}
     >
-      <Text style={stylesheet.journal}>{`Positive`}</Text>
+      <Text style={stylesheet.journal}>Negative</Text>
       {/* <View style={stylesheet.root}> */}
       <View style={stylesheet.buttonbox}>
         <FlatList
           style={{ paddingTop: 150 }}
           data={[
-            { key: "Happy" },
-            { key: "Energetic" },
-            { key: "Relaxed" },
-            { key: "Excited" },
-            { key: "Inspired" },
+            { key: "Sad" },
+            { key: "Irritated" },
+            { key: "Stressed" },
+            { key: "Frustrated" },
+            { key: "Lonely" },
             { key: "Other:" },
           ]}
           numColumns={1}
@@ -56,7 +56,6 @@ const stylesheet = StyleSheet.create({
     borderBottomRightRadius: 40,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    backgroundColor: "rgba(255, 255, 255, 1)",
   },
   rectangle10: {
     width: 393,
@@ -66,7 +65,6 @@ const stylesheet = StyleSheet.create({
     borderBottomRightRadius: 40,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    backgroundColor: "rgba(255, 255, 255, 1)",
     shadowColor: "rgba(0, 0, 0, 0.20000000298023224)",
     shadowRadius: 50,
     shadowOffset: { width: 0, height: 4 },

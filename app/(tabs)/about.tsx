@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Svg, Path } from "react-native-svg";
 
-export default function IPhone16Plus14() {
+export default function About() {
   return (
     <View style={styles.iPhone16Plus14Container}>
       <Text style={styles.about}>About</Text>

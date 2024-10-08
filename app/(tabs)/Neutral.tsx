@@ -3,51 +3,36 @@ import { Text, View, FlatList } from "react-native";
 import { StyleSheet, Image, Platform } from "react-native";
 import { TouchableOpacity } from "react-native";
 import React from "react";
-import { useNavigation } from "expo-router";
-//import HomeStack from "../_moodLayout";
-import { StackNavigationProp } from '@react-navigation/stack';
-
 //import {ArrowBack} from 'components/common/base/arrow-back';
 
-// Define the param list
-type RootStackParamList = {
-  Positive: undefined;
-  Neutral: undefined;
-  Negative: undefined;
-};
-
-// Define the navigation prop type
-type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
-
-export default function Mood() {
-  const navigation = useNavigation<MoodScreenNavigationProp>();
-
-  const handlePress = (title: keyof RootStackParamList) => {
-    navigation.navigate(title);
-  };
-
+export default function Neutral() {
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(243, 236, 255, 1)",
+        backgroundColor: "rgba(251, 255, 222, 1)"
       }}
     >
-      <Text style={stylesheet.journal}>How are you feeling today?</Text>
+      <Text style={stylesheet.journal}>Neutral</Text>
       {/* <View style={stylesheet.root}> */}
       <View style={stylesheet.buttonbox}>
         <FlatList
-          style={{ paddingTop: 200 }}
-          data={[{ key: "Positive" }, { key: "Neutral" }, { key: "Negative" }]}
+          style={{ paddingTop: 150 }}
+          data={[
+            { key: "Calm" },
+            { key: "Tired" },
+            { key: "Restless" },
+            { key: "Bored" },
+            { key: "Content" },
+            { key: "Other:" },
+          ]}
           numColumns={1}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => handlePress(item.key as keyof RootStackParamList)}>
-              <View style={stylesheet.buttonContainer}>
-                <Text style={stylesheet.button}> {item.key} </Text>
-              </View>
-            </TouchableOpacity>
+            <View style={stylesheet.buttonContainer}>
+              <Text style={stylesheet.button}> {item.key} </Text>
+            </View>
           )}
           ItemSeparatorComponent={() => <View style={{ height: 24 }} />}
         ></FlatList>
@@ -72,9 +57,6 @@ const stylesheet = StyleSheet.create({
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     backgroundColor: "rgba(255, 255, 255, 1)",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
   rectangle10: {
     width: 393,
@@ -88,12 +70,9 @@ const stylesheet = StyleSheet.create({
     shadowColor: "rgba(0, 0, 0, 0.20000000298023224)",
     shadowRadius: 50,
     shadowOffset: { width: 0, height: 4 },
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
   buttonContainer: {
-    position: "relative",
+    //position: "relative",
     flexShrink: 0,
     height: 67,
     width: 198,
@@ -116,16 +95,17 @@ const stylesheet = StyleSheet.create({
     flexShrink: 0,
     textAlign: "left",
     color: "rgba(245, 245, 245, 1)",
+    //fontFamily: "Nunito Sans",
     fontSize: 32,
     fontWeight: "400",
   },
   journal: {
     position: "absolute",
     flexShrink: 0,
-    top: 42,
-    left: 69,
-    width: 305,
-    height: 130,
+    top: 28,
+    left: 138,
+    width:"auto",
+    height: 65,
     textAlign: "center",
     color: "rgba(0, 0, 0, 1)",
     fontSize: 48,
