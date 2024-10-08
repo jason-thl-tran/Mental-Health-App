@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { Svg, Path } from "react-native-svg";
 
 export default function Journal() {
@@ -7,22 +14,18 @@ export default function Journal() {
   const [inputHeight, setInputHeight] = useState(40);
   return (
     <View style={[styles.iPhone16Plus5Container, { height: inputHeight }]}>
-      <View style={styles.rectangle8}>
-        <TextInput
-          style={styles.typing}
-          placeholder="Type here..."
-          multiline={true}
-          onContentSizeChange={(event) => {
-            setInputHeight(event.nativeEvent.contentSize.height);
-          }}
-        >
-          {/* onChangeText={(input) => setText(input)} */}
-          {/* value={text}> */}
-        </TextInput>{" "}
-      </View>
-      {/* <Text style={styles.displayText}>Your Type</Text> */}
-
-      {/* Visualwind:: can be replaced with <Arrow_back  /> */}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.rectangle8}>
+          <TextInput
+            style={styles.typing}
+            placeholder="Type here..."
+            multiline={true}
+            onContentSizeChange={(event) => {
+              setInputHeight(event.nativeEvent.contentSize.height);
+            }}
+          ></TextInput>
+        </View>
+      </TouchableWithoutFeedback>
       <View style={styles.arrow_back}>
         <Svg
           style={styles.icon}
@@ -37,9 +40,7 @@ export default function Journal() {
           />
         </Svg>
       </View>
-      <Text style={styles.journal}>{`Journal`}</Text>
-
-      {/* Visualwind:: can be replaced with <Group4  /> */}
+      <Text style={styles.journal}>Journal</Text>
     </View>
   );
 }
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     flexShrink: 0,
     top: 98,
     width: 361,
-    height: 707,
+    height: 650,
     backgroundColor: "rgba(217, 217, 217, 1)",
     borderRadius: 24,
     padding: 12,
@@ -89,13 +90,16 @@ const styles = StyleSheet.create({
     position: "absolute",
     flexShrink: 0,
     top: 28,
-    left: 138,
+    //left: 138,
     width: 154,
     height: 65,
-    textAlign: "center",
+    //textAlign: "center",
     color: "rgba(0, 0, 0, 1)",
     fontSize: 48,
-    fontWeight: 400,
+    fontWeight: "400",
+    justifyContent: "center",
+    flex: 1,
+    alignItems: "center",
   },
   typing: {
     width: 337,

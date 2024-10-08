@@ -1,10 +1,15 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { Svg, Path } from "react-native-svg";
+import { useNavigation } from '@react-navigation/native';
 
 export default function Arrow_back() {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.arrow_backContainer}>
+    <TouchableOpacity style={styles.arrow_backContainer} onPress={() => navigation.goBack()}>
+          
       <Svg
         style={styles.icon}
         width="16"
@@ -17,20 +22,22 @@ export default function Arrow_back() {
           fill="#1D1B20"
         />
       </Svg>
-    </View>
+  </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   arrow_backContainer: {
-    position: "relative",
+    position: "absolute",
     flexShrink: 0,
-    height: 24,
-    width: 24,
+    top: 0,
+    left: 0,
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
     rowGap: 0,
+    marginTop: 45,
+    marginLeft: 16
   },
   icon: {
     position: "absolute",

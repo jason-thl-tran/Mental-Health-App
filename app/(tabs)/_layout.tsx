@@ -59,6 +59,22 @@ export default function RootLayout() {
           ),
         }}
       />
+      <Tabs.Screen 
+        name="Positive" 
+        options={{ tabBarButton: () => null }}
+      />
+      <Tabs.Screen 
+        name="Neutral" 
+        options={{ tabBarButton: () => null }}
+      />
+      <Tabs.Screen 
+        name="Negative" 
+        options={{ tabBarButton: () => null }}
+      />
+      <Tabs.Screen 
+        name="BackArrow" 
+        options={{ tabBarButton: () => null }}
+      />
     </Tabs>
   );
 }
