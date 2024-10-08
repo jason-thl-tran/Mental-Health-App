@@ -71,6 +71,10 @@ export default function RootLayout() {
         name="Negative" 
         options={{ tabBarButton: () => null }}
       />
+      <Tabs.Screen 
+        name="BackArrow" 
+        options={{ tabBarButton: () => null }}
+      />
     </Tabs>
   );
 }

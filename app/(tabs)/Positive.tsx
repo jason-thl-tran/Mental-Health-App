@@ -1,20 +1,33 @@
-//import {useStyles, createStyleSheet} from 'styles';
 import { Text, View, FlatList } from "react-native";
-import { StyleSheet, Image, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
-import React from "react";
-//import {ArrowBack} from 'components/common/base/arrow-back';
+import { useNavigation } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { StackNavigationProp } from "@react-navigation/stack";
+
+type RootStackParamList = {
+  Mood: undefined;
+};
+type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export default function Positive() {
+  const navigation = useNavigation<MoodScreenNavigationProp>();
+
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(212, 217, 185, 1)"
+        backgroundColor: "rgba(212, 217, 185, 1)",
       }}
     >
+      <TouchableOpacity
+        style={stylesheet.arrow_back}
+        onPress={() => navigation.navigate("mood" as keyof RootStackParamList)}
+      >
+        <Ionicons name="arrow-back" size={24} color="black" />
+      </TouchableOpacity>
       <Text style={stylesheet.journal}>Positive</Text>
       <View style={stylesheet.buttonbox}>
         <FlatList
@@ -81,5 +94,16 @@ const stylesheet = StyleSheet.create({
     paddingTop: 45,
     padding: 16,
   },
+  arrow_back: {
+    position: "absolute",
+    flexShrink: 0,
+    top: 0,
+    left: 0,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    rowGap: 0,
+    marginTop: 45,
+    marginLeft: 16,
+  },
 });
-

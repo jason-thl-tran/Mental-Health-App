@@ -1,23 +1,15 @@
 //import {useStyles, createStyleSheet} from 'styles';
 import { Text, View, FlatList } from "react-native";
-import { StyleSheet, Image, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
-import React from "react";
 import { useNavigation } from "expo-router";
-//import HomeStack from "../_moodLayout";
-import { StackNavigationProp } from '@react-navigation/stack';
-import { green } from "react-native-reanimated/lib/typescript/reanimated2/Colors";
+import { StackNavigationProp } from "@react-navigation/stack";
 
-//import {ArrowBack} from 'components/common/base/arrow-back';
-
-// Define the param list
 type RootStackParamList = {
   Positive: undefined;
   Neutral: undefined;
   Negative: undefined;
 };
-
-// Define the navigation prop type
 type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export default function Mood() {
@@ -43,7 +35,9 @@ export default function Mood() {
           data={[{ key: "Positive" }, { key: "Neutral" }, { key: "Negative" }]}
           numColumns={1}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => handlePress(item.key as keyof RootStackParamList)}>
+            <TouchableOpacity
+              onPress={() => handlePress(item.key as keyof RootStackParamList)}
+            >
               <View style={stylesheet.buttonContainer}>
                 <Text style={stylesheet.button}> {item.key} </Text>
               </View>
@@ -82,7 +76,7 @@ const stylesheet = StyleSheet.create({
     color: "rgba(245, 245, 245, 1)",
     fontSize: 32,
     fontWeight: "regular",
-    fontFamily: "Arial"
+    fontFamily: "Arial",
   },
   journal: {
     position: "absolute",
@@ -94,6 +88,6 @@ const stylesheet = StyleSheet.create({
     fontWeight: "semibold",
     fontFamily: "Arial",
     paddingTop: 45,
-    padding: 16
+    padding: 16,
   },
 });

@@ -6,11 +6,9 @@ export default function Home() {
     <View style={styles.iPhone16Plus15Container}>
       <Text style={styles.moodFlow}>MoodFlow</Text>
       <Text style={styles.beginyourjourneynow}>Begin your journey now</Text>
-      {/* Visualwind:: can be replaced with <Button style={"filled"} state={"enabled"} showIcon={"false"} /> */}
       <View style={styles.button}>
         <View style={styles.statelayer}>
           <Text style={styles.labeltext}>
-            {/* You can add button text here if needed */}
           </Text>
         </View>
       </View>
