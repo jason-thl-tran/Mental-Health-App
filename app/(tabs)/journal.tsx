@@ -1,36 +1,26 @@
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from 'react-native';
+  View,Text,TextInput,TouchableOpacity,StyleSheet,ScrollView,KeyboardAvoidingView,Platform,TouchableWithoutFeedback,Keyboard} from 'react-native';
 
 export default function Journal() {
-  const [userInput, setUserInput] = useState('');
-  const [messages, setMessages] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [userInput, Input_is] = useState('');
+  const [messages, messa_is] = useState([]);
+  const [loading, loadcoming] = useState(false);
   const [inputHeight, setInputHeight] = useState(40);
   const [mode, setMode] = useState('ai');
 
   const handleSend = async () => {
     if (userInput.trim() === '') return;
 
-    if (mode === 'free') {
-      // Store user's message in free journaling mode
-      setMessages((prevMessages) => [...prevMessages, { type: 'user', text: userInput }]);
-      setUserInput('');
+    if (mode === 'aaaa') {
+      
+      messa_is((avantmess) => [...avantmess, { type: 'user', text: userInput }]);
+      Input_is('');
       return;
     }
 
-    setMessages((prevMessages) => [...prevMessages, { type: 'user', text: userInput }]);
-    setLoading(true);
+    messa_is((avantmess) => [...avantmess, { type: 'user', text: userInput }]);
+    loadcoming(true);
     try {
       const response = await fetch('http://localhost:3000/journal', {
         method: 'POST',
@@ -42,36 +32,47 @@ export default function Journal() {
 
       const data = await response.json();
 
-      setMessages((prevMessages) => [...prevMessages, { type: 'ai', text: data.response }]);
-      setUserInput('');
+      messa_is((avantmess) => [...avantmess, { type: 'ai', text: data.response }]);
+      Input_is('');
     } finally {
-      setLoading(false);
+      loadcoming(false);
     }
   };
 
   const handleModeSwitch = (newMode) => {
     setMode(newMode);
-    setMessages([]);
-    setUserInput('');
+    messa_is([]);
+    Input_is('');
   };
 
-  const renderInputField = () => (
+  
+const renderFreeJournalingInput = () => (
+  <ScrollView contentContainerStyle={styles.inputContainer}>
+    <TextInput
+      style={[styles.input, { height: 500 }]} 
+      placeholder="Write your thoughts..."
+      multiline={true}
+      value={userInput}
+      onChangeText={(text) => Input_is(text)}
+      scrollEnabled={true} 
+    />
+  </ScrollView>
+);
+
+
+  
+  const renderAssistantinput = () => (
     <View style={styles.inputContainer}>
       <TextInput
-        style={[
-          mode === 'free' ? styles.freeInput : styles.input,
-          { height: mode === 'free' ? 200 : Math.max(40, inputHeight) },
-        ]}
-        placeholder={mode === 'ai' ? "How are you feeling today?" : "Write your thoughts..."}
+        style={[styles.input, { height: Math.max(40, inputHeight) }]} 
+        placeholder="How are you feeling today?"
         multiline={true}
         value={userInput}
-        onChangeText={(text) => setUserInput(text)}
-        onContentSizeChange={(event) =>
-          setInputHeight(event.nativeEvent.contentSize.height)
-        }
+        onChangeText={(text) => Input_is(text)}
+        onContentSizeChange={(event) => setInputHeight(event.nativeEvent.contentSize.height)}
       />
       <TouchableOpacity style={styles.button} onPress={handleSend}>
-        <Text style={styles.buttonText}>{mode === 'ai' ? 'Send' : 'Write'}</Text>
+        <Text style={styles.buttonText}>Send</Text>
       </TouchableOpacity>
     </View>
   );
@@ -86,8 +87,8 @@ export default function Journal() {
 
               <View style={styles.modeContainer}>
                 <TouchableOpacity
-                  style={[styles.modeButton, mode === 'free' ? styles.activeMode : null]}
-                  onPress={() => handleModeSwitch('free')}
+                  style={[styles.modeButton, mode === 'aaaa' ? styles.activeMode : null]}
+                  onPress={() => handleModeSwitch('aaaa')}
                 >
                   <Text style={styles.modeButtonText}>Free Journaling</Text>
                 </TouchableOpacity>
@@ -95,7 +96,7 @@ export default function Journal() {
                   style={[styles.modeButton, mode === 'ai' ? styles.activeMode : null]}
                   onPress={() => handleModeSwitch('ai')}
                 >
-                  <Text style={styles.modeButtonText}>AI Prompt</Text>
+                  <Text style={styles.modeButtonText}>Personal Assistant Prompt</Text>
                 </TouchableOpacity>
               </View>
 
@@ -113,7 +114,8 @@ export default function Journal() {
                 ))}
               </ScrollView>
 
-              {renderInputField()}
+              {}
+              {mode === 'aaaa' ? renderFreeJournalingInput() : renderAssistantinput()}
 
               {loading && <Text style={styles.loading}>Communicating with my mental assistant...</Text>}
             </View>
@@ -130,8 +132,8 @@ export default function Journal() {
 
               <View style={styles.modeContainer}>
                 <TouchableOpacity
-                  style={[styles.modeButton, mode === 'free' ? styles.activeMode : null]}
-                  onPress={() => handleModeSwitch('free')}
+                  style={[styles.modeButton, mode === 'aaaa' ? styles.activeMode : null]}
+                  onPress={() => handleModeSwitch('aaaa')}
                 >
                   <Text style={styles.modeButtonText}>Free Journaling</Text>
                 </TouchableOpacity>
@@ -157,7 +159,8 @@ export default function Journal() {
                 ))}
               </ScrollView>
 
-              {renderInputField()}
+              {}
+              {mode === 'aaaa' ? renderaaaaJournalingInput() : renderAssistantinput()}
 
               {loading && <Text style={styles.loading}>Communicating with my mental assistant...</Text>}
             </View>
@@ -236,16 +239,6 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#ddd',
   },
-  freeInput: {
-    flex: 1,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 20,
-    backgroundColor: '#fff',
-    marginRight: 10,
-    textAlignVertical: 'top', 
-  },
   input: {
     flex: 1,
     padding: 10,
@@ -273,3 +266,4 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
+
