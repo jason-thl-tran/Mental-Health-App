@@ -17,7 +17,7 @@ const Home = () => {
           <View style={{ padding: 16 }}>
             <Text style={styles.heading}>Welcome Home!</Text>
             <Calendar
-              onDayPress={day => {
+              onDayPress={(day: { dateString: React.SetStateAction<string>; }) => {
                 setSelected(day.dateString);
               }}
               markedDates={{
