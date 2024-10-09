@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView } from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -15,7 +15,7 @@ const Home = () => {
           style={{ height: '100%' }}
         >
           <View style={{ padding: 16 }}>
-            <Text>Home</Text>
+            <Text style={styles.heading}>Welcome Home!</Text>
             <Calendar
               onDayPress={day => {
                 setSelected(day.dateString);
@@ -30,5 +30,14 @@ const Home = () => {
     </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  heading: {
+    fontSize: 24, 
+    fontWeight: 'bold', 
+    textAlign: 'center', 
+    marginBottom: 20, 
+  },
+});
 
 export default Home;
