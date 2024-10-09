@@ -1,4 +1,3 @@
-//import {useStyles, createStyleSheet} from 'styles';
 import { Text, View, FlatList } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
@@ -14,7 +13,6 @@ type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export default function Mood() {
   const navigation = useNavigation<MoodScreenNavigationProp>();
-
   const handlePress = (title: keyof RootStackParamList) => {
     navigation.navigate(title);
   };
@@ -25,7 +23,7 @@ export default function Mood() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(226, 208, 255, 1)",
+        backgroundColor: "#FFFFF4",
       }}
     >
       <Text style={stylesheet.journal}>How are you feeling today?</Text>
