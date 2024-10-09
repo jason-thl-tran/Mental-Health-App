@@ -1,7 +1,8 @@
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
-import React from 'react'
-import Markdown, { MarkdownIt } from 'react-native-markdown-display'
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import React from 'react';
+import Markdown from 'react-native-markdown-display';
 import { ScrollView } from 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const resourcesContent = `
 # Mental Health Resources
@@ -63,18 +64,24 @@ Free Crisis helpline for LGBTQIA+ youth
 Free individual counseling and group therapy for victims of sexual assault  
 
 **Emergency Medical Services, Fire, or Police**  
-Dial: 911  `;
+Dial: 911  
+`;
 
 const Resources = () => {
     return (
-        <SafeAreaView style= {{ flex: 1}}>
-            <ScrollView 
-                contentInsetAdjustmentBehavior='automatic'
-                style={{height:'100%'}}
-            >
-                <Markdown>{resourcesContent}</Markdown>
-            </ScrollView>
-        </SafeAreaView>
-    )
-}
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <SafeAreaView style={{ backgroundColor: 'white' }}>
+                <ScrollView 
+                    contentInsetAdjustmentBehavior='automatic'
+                    style={{ height: '100%' }}
+                >
+                    <View style={{ padding: 16 }}>
+                    <Markdown>{resourcesContent}</Markdown>
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
+        </GestureHandlerRootView>
+    );
+};
+
 export default Resources;
