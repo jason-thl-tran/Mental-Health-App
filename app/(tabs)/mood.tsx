@@ -6,17 +6,16 @@ import { useNavigation } from "expo-router";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 type RootStackParamList = {
-  Positive: undefined;
-  Neutral: undefined;
-  Negative: undefined;
+  Positive: {replace: boolean};
+  Neutral: {replace: boolean};
+  Negative: {replace: boolean};
 };
 type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export default function Mood() {
   const navigation = useNavigation<MoodScreenNavigationProp>();
-
   const handlePress = (title: keyof RootStackParamList) => {
-    navigation.navigate(title);
+    navigation.navigate(title, { replace: true });
   };
 
   return (
@@ -25,7 +24,7 @@ export default function Mood() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(226, 208, 255, 1)",
+        backgroundColor: "#FFFFF4",
       }}
     >
       <Text style={stylesheet.journal}>How are you feeling today?</Text>

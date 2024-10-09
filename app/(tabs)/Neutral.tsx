@@ -6,13 +6,17 @@ import { Ionicons } from "@expo/vector-icons";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 type RootStackParamList = {
-  Mood: undefined;
+  mood: undefined;
+  finalMood: { emotion: string };
 };
 type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export default function Neutral() {
   const navigation = useNavigation<MoodScreenNavigationProp>();
-
+  const handlePress = (emotion: string) => {
+    console.log("Navigating to finalMood with emotion:", emotion);
+    navigation.navigate("finalMood", { emotion: emotion });
+  };
   return (
     <View
       style={{
@@ -24,7 +28,7 @@ export default function Neutral() {
     >
       <TouchableOpacity
         style={stylesheet.arrow_back}
-        onPress={() => navigation.navigate("mood" as keyof RootStackParamList)}
+        onPress={() => navigation.navigate("mood")}
       >
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
@@ -42,9 +46,12 @@ export default function Neutral() {
           ]}
           numColumns={1}
           renderItem={({ item }) => (
-            <View style={stylesheet.buttonContainer}>
+            <TouchableOpacity
+            onPress={() => handlePress(item.key)}
+            style={stylesheet.buttonContainer}
+          >
               <Text style={stylesheet.button}> {item.key} </Text>
-            </View>
+            </TouchableOpacity>
           )}
           ItemSeparatorComponent={() => <View style={{ height: 24 }} />}
         ></FlatList>
