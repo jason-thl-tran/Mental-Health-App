@@ -9,8 +9,8 @@ import { Ionicons } from "@expo/vector-icons";
 
 type RootStackParamList = {
   Mood: undefined;
-    _moodstack: undefined;
-    FinalMood: { emotion: string };
+  _moodstack: undefined;
+  FinalMood: { emotion: string };
   Positive: undefined;
   Neutral: undefined;
   Negative: undefined;
@@ -29,7 +29,7 @@ const FinalMood: React.FC = () => {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#FFFFF4",
+        backgroundColor: "#f5f5f5",
       }}
     >
       <TouchableOpacity
