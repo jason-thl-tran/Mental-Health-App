@@ -2,19 +2,24 @@ import { Text, View, FlatList } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 type RootStackParamList = {
+  Mood: undefined;
+    _moodstack: undefined;
+    FinalMood: { emotion: string };
   Positive: undefined;
   Neutral: undefined;
   Negative: undefined;
 };
 type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
-export default function Mood() {
+export default function Negative() {
   const navigation = useNavigation<MoodScreenNavigationProp>();
-  const handlePress = (title: keyof RootStackParamList) => {
-    navigation.navigate(title);
+  
+  const handlePress = (emotion: string) => {
+    navigation.navigate("FinalMood", { emotion: emotion });
   };
 
   return (
@@ -23,28 +28,41 @@ export default function Mood() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#FFFFF4",
+        backgroundColor: "rgba(255, 189, 189, 1)",
       }}
     >
-      <Text style={stylesheet.journal}>How are you feeling today?</Text>
+      <TouchableOpacity
+        style={stylesheet.arrow_back}
+        onPress={() => navigation.navigate("Mood")}
+      >
+        <Ionicons name="arrow-back" size={24} color="black" />
+      </TouchableOpacity>
+      <Text style={stylesheet.journal}>Negative</Text>
       <View style={stylesheet.buttonbox}>
         <FlatList
-          style={{ paddingTop: 300 }}
-          data={[{ key: "Positive" }, { key: "Neutral" }, { key: "Negative" }]}
+          style={{ paddingTop: 200 }}
+          data={[
+            { key: "Sad" },
+            { key: "Irritated" },
+            { key: "Stressed" },
+            { key: "Frustrated" },
+            { key: "Lonely" },
+            { key: "Other:" },
+          ]}
           numColumns={1}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => handlePress(item.key as keyof RootStackParamList)}
+              onPress={() => handlePress(item.key)}
+              style={stylesheet.buttonContainer}
             >
-              <View style={stylesheet.buttonContainer}>
-                <Text style={stylesheet.button}> {item.key} </Text>
-              </View>
+              <Text style={stylesheet.button}> {item.key} </Text>
             </TouchableOpacity>
           )}
           ItemSeparatorComponent={() => <View style={{ height: 24 }} />}
         ></FlatList>
       </View>
     </View>
+    // </View>
   );
 }
 
@@ -87,5 +105,17 @@ const stylesheet = StyleSheet.create({
     fontFamily: "Arial",
     paddingTop: 45,
     padding: 16,
+  },
+  arrow_back: {
+    position: "absolute",
+    flexShrink: 0,
+    top: 0,
+    left: 0,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    rowGap: 0,
+    marginTop: 45,
+    marginLeft: 16,
   },
 });

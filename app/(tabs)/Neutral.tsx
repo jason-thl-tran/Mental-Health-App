@@ -2,49 +2,61 @@ import { Text, View, FlatList } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 type RootStackParamList = {
-  Positive: undefined;
-  Neutral: undefined;
-  Negative: undefined;
+  Mood: undefined;
+  FinalMood: { emotion: string };
 };
 type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
-export default function Mood() {
+export default function Neutral() {
   const navigation = useNavigation<MoodScreenNavigationProp>();
-  const handlePress = (title: keyof RootStackParamList) => {
-    navigation.navigate(title);
+  const handlePress = (emotion: string) => {
+    navigation.navigate("FinalMood", { emotion: emotion });
   };
-
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#FFFFF4",
+        backgroundColor: "rgba(251, 225, 202, 1)",
       }}
     >
-      <Text style={stylesheet.journal}>How are you feeling today?</Text>
+      <TouchableOpacity
+        style={stylesheet.arrow_back}
+        onPress={() => navigation.navigate("Mood")}
+      >
+        <Ionicons name="arrow-back" size={24} color="black" />
+      </TouchableOpacity>
+      <Text style={stylesheet.journal}>Neutral</Text>
       <View style={stylesheet.buttonbox}>
         <FlatList
-          style={{ paddingTop: 300 }}
-          data={[{ key: "Positive" }, { key: "Neutral" }, { key: "Negative" }]}
+          style={{ paddingTop: 200 }}
+          data={[
+            { key: "Calm" },
+            { key: "Tired" },
+            { key: "Restless" },
+            { key: "Bored" },
+            { key: "Content" },
+            { key: "Other:" },
+          ]}
           numColumns={1}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => handlePress(item.key as keyof RootStackParamList)}
-            >
-              <View style={stylesheet.buttonContainer}>
-                <Text style={stylesheet.button}> {item.key} </Text>
-              </View>
+            onPress={() => handlePress(item.key)}
+            style={stylesheet.buttonContainer}
+          >
+              <Text style={stylesheet.button}> {item.key} </Text>
             </TouchableOpacity>
           )}
           ItemSeparatorComponent={() => <View style={{ height: 24 }} />}
         ></FlatList>
       </View>
     </View>
+    // </View>
   );
 }
 
@@ -87,5 +99,17 @@ const stylesheet = StyleSheet.create({
     fontFamily: "Arial",
     paddingTop: 45,
     padding: 16,
+  },
+  arrow_back: {
+    position: "absolute",
+    flexShrink: 0,
+    top: 0,
+    left: 0,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    rowGap: 0,
+    marginTop: 45,
+    marginLeft: 16,
   },
 });
