@@ -6,8 +6,12 @@ import { Ionicons } from "@expo/vector-icons";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 type RootStackParamList = {
-  mood: undefined;
-  finalMood: { emotion: string, replace: boolean };
+  Mood: undefined;
+    _moodstack: undefined;
+    FinalMood: { emotion: string };
+  Positive: undefined;
+  Neutral: undefined;
+  Negative: undefined;
 };
 type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
@@ -15,8 +19,7 @@ export default function Negative() {
   const navigation = useNavigation<MoodScreenNavigationProp>();
   
   const handlePress = (emotion: string) => {
-    console.log("Navigating to finalMood with emotion:", emotion);
-    navigation.navigate("finalMood", { emotion: emotion, replace: true});
+    navigation.navigate("FinalMood", { emotion: emotion });
   };
 
   return (
@@ -30,7 +33,7 @@ export default function Negative() {
     >
       <TouchableOpacity
         style={stylesheet.arrow_back}
-        onPress={() => navigation.navigate("mood")}
+        onPress={() => navigation.navigate("Mood")}
       >
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>

@@ -1,23 +1,9 @@
-//import { Stack } from "expo-router";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { Tabs } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { Svg, Path } from "react-native-svg";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import { createStackNavigator } from '@react-navigation/stack';
-import Negative from "./Negative";
-import FinalMood from "./finalMood";
-const Stack = createStackNavigator();
 
-function MoodStack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Negative" component={Negative} />
-      <Stack.Screen name="FinalMood" component={FinalMood} />
-    </Stack.Navigator>
-  );
-}
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
@@ -41,7 +27,7 @@ export default function RootLayout() {
         }}
       />
       <Tabs.Screen
-        name="mood"
+        name="_moodstack"
         options={{
           title: "Mood",
           tabBarIcon: ({ color, focused }) => (
@@ -67,30 +53,19 @@ export default function RootLayout() {
         options={{
           title: "About",
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? "information" : "information"} color={color} />
+            <TabBarIcon
+              name={focused ? "information" : "information"}
+              color={color}
+            />
           ),
         }}
       />
-      <Tabs.Screen 
-        name="Positive" 
-        options={{ tabBarButton: () => null }}
-      />
-      <Tabs.Screen 
-        name="Neutral" 
-        options={{ tabBarButton: () => null }}
-      />
-      <Tabs.Screen 
-        name="Negative" 
-        options={{ tabBarButton: () => null }}
-      />
-      <Tabs.Screen 
-        name="BackArrow" 
-        options={{ tabBarButton: () => null }}
-      />
-      <Tabs.Screen 
-        name="finalMood" 
-        options={{ tabBarButton: () => null }}
-      />
+      <Tabs.Screen name="mood" options={{ tabBarButton: () => null }} />
+      <Tabs.Screen name="Positive" options={{ tabBarButton: () => null }} />
+      <Tabs.Screen name="Neutral" options={{ tabBarButton: () => null }} />
+      <Tabs.Screen name="Negative" options={{ tabBarButton: () => null }} />
+      <Tabs.Screen name="finalMood" options={{ tabBarButton: () => null }} />
+      <Tabs.Screen name="BackArrow" options={{ tabBarButton: () => null }} />
     </Tabs>
   );
 }

@@ -1,6 +1,4 @@
-import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons"; 
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { Fontisto } from "@expo/vector-icons";
 

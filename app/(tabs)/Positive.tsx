@@ -7,15 +7,14 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 type RootStackParamList = {
   Mood: undefined;
-  finalMood: { emotion: string };
+  FinalMood: { emotion: string };
 };
 type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export default function Positive() {
   const navigation = useNavigation<MoodScreenNavigationProp>();
   const handlePress = (emotion: string) => {
-    console.log("Navigating to finalMood with emotion:", emotion);
-    navigation.navigate("finalMood", { emotion: emotion });
+    navigation.navigate("FinalMood", { emotion: emotion });
   };
   return (
     <View

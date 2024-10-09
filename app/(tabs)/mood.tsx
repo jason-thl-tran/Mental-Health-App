@@ -1,4 +1,3 @@
-//import {useStyles, createStyleSheet} from 'styles';
 import { Text, View, FlatList } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
@@ -6,16 +5,16 @@ import { useNavigation } from "expo-router";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 type RootStackParamList = {
-  Positive: {replace: boolean};
-  Neutral: {replace: boolean};
-  Negative: {replace: boolean};
+  Positive: undefined;
+  Neutral: undefined;
+  Negative: undefined;
 };
 type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export default function Mood() {
   const navigation = useNavigation<MoodScreenNavigationProp>();
   const handlePress = (title: keyof RootStackParamList) => {
-    navigation.navigate(title, { replace: true });
+    navigation.navigate(title);
   };
 
   return (
