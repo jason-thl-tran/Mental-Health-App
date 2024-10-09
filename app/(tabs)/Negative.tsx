@@ -2,16 +2,26 @@ import { Text, View, FlatList } from "react-native";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "expo-router";
-import { Ionicons } from "@expo/vector-icons"; 
+import { Ionicons } from "@expo/vector-icons";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 type RootStackParamList = {
   Mood: undefined;
+    _moodstack: undefined;
+    FinalMood: { emotion: string };
+  Positive: undefined;
+  Neutral: undefined;
+  Negative: undefined;
 };
 type MoodScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export default function Negative() {
   const navigation = useNavigation<MoodScreenNavigationProp>();
+  
+  const handlePress = (emotion: string) => {
+    navigation.navigate("FinalMood", { emotion: emotion });
+  };
+
   return (
     <View
       style={{
@@ -23,7 +33,7 @@ export default function Negative() {
     >
       <TouchableOpacity
         style={stylesheet.arrow_back}
-        onPress={() => navigation.navigate("mood" as keyof RootStackParamList)}
+        onPress={() => navigation.navigate("Mood")}
       >
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
@@ -41,9 +51,12 @@ export default function Negative() {
           ]}
           numColumns={1}
           renderItem={({ item }) => (
-            <View style={stylesheet.buttonContainer}>
+            <TouchableOpacity
+              onPress={() => handlePress(item.key)}
+              style={stylesheet.buttonContainer}
+            >
               <Text style={stylesheet.button}> {item.key} </Text>
-            </View>
+            </TouchableOpacity>
           )}
           ItemSeparatorComponent={() => <View style={{ height: 24 }} />}
         ></FlatList>

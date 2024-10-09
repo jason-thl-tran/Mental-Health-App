@@ -1,5 +1,4 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Svg, Path } from "react-native-svg";
 import { useNavigation } from '@react-navigation/native';
