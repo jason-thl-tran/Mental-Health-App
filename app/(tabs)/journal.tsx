@@ -12,7 +12,7 @@ export default function Journal() {
   const handleSend = async () => {
     if (userInput.trim() === '') return;
 
-    if (mode === 'aaaa') {
+    if (mode === 'free') {
       
       messa_is((avantmess) => [...avantmess, { type: 'user', text: userInput }]);
       Input_is('');
@@ -87,53 +87,8 @@ const renderFreeJournalingInput = () => (
 
               <View style={styles.modeContainer}>
                 <TouchableOpacity
-                  style={[styles.modeButton, mode === 'aaaa' ? styles.activeMode : null]}
-                  onPress={() => handleModeSwitch('aaaa')}
-                >
-                  <Text style={styles.modeButtonText}>Free Journaling</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.modeButton, mode === 'ai' ? styles.activeMode : null]}
-                  onPress={() => handleModeSwitch('ai')}
-                >
-                  <Text style={styles.modeButtonText}>Personal Assistant Prompt</Text>
-                </TouchableOpacity>
-              </View>
-
-              <ScrollView contentContainerStyle={styles.chatContainer}>
-                {messages.map((message, index) => (
-                  <View
-                    key={index}
-                    style={[
-                      styles.messageBox,
-                      message.type === 'user' ? styles.userMessage : styles.assistantMessage,
-                    ]}
-                  >
-                    <Text style={styles.messageText}>{message.text}</Text>
-                  </View>
-                ))}
-              </ScrollView>
-
-              {}
-              {mode === 'aaaa' ? renderFreeJournalingInput() : renderAssistantinput()}
-
-              {loading && <Text style={styles.loading}>Communicating with my mental assistant...</Text>}
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
-      ) : (
-        <KeyboardAvoidingView
-          style={{ flex: 1 }}
-          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        >
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View style={styles.container}>
-              <Text style={styles.title}>Mental Health Journal</Text>
-
-              <View style={styles.modeContainer}>
-                <TouchableOpacity
-                  style={[styles.modeButton, mode === 'aaaa' ? styles.activeMode : null]}
-                  onPress={() => handleModeSwitch('aaaa')}
+                  style={[styles.modeButton, mode === 'free' ? styles.activeMode : null]}
+                  onPress={() => handleModeSwitch('free')}
                 >
                   <Text style={styles.modeButtonText}>Free Journaling</Text>
                 </TouchableOpacity>
@@ -151,7 +106,7 @@ const renderFreeJournalingInput = () => (
                     key={index}
                     style={[
                       styles.messageBox,
-                      message.type === 'user' ? styles.userMessage : styles.assistantMessage,
+                      message.type === 'user' ? styles.userMessage : styles.aiMessage,
                     ]}
                   >
                     <Text style={styles.messageText}>{message.text}</Text>
@@ -160,7 +115,52 @@ const renderFreeJournalingInput = () => (
               </ScrollView>
 
               {}
-              {mode === 'aaaa' ? renderaaaaJournalingInput() : renderAssistantinput()}
+              {mode === 'free' ? renderFreeJournalingInput() : renderAssistantinput()}
+
+              {loading && <Text style={styles.loading}>Communicating with my mental assistant...</Text>}
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+      ) : (
+        <KeyboardAvoidingView
+          style={{ flex: 1 }}
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        >
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={styles.container}>
+              <Text style={styles.title}>Mental Health Journal</Text>
+
+              <View style={styles.modeContainer}>
+                <TouchableOpacity
+                  style={[styles.modeButton, mode === 'free' ? styles.activeMode : null]}
+                  onPress={() => handleModeSwitch('free')}
+                >
+                  <Text style={styles.modeButtonText}>Free Journaling</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.modeButton, mode === 'ai' ? styles.activeMode : null]}
+                  onPress={() => handleModeSwitch('ai')}
+                >
+                  <Text style={styles.modeButtonText}>AI Prompt</Text>
+                </TouchableOpacity>
+              </View>
+
+              <ScrollView contentContainerStyle={styles.chatContainer}>
+                {messages.map((message, index) => (
+                  <View
+                    key={index}
+                    style={[
+                      styles.messageBox,
+                      message.type === 'user' ? styles.userMessage : styles.aiMessage,
+                    ]}
+                  >
+                    <Text style={styles.messageText}>{message.text}</Text>
+                  </View>
+                ))}
+              </ScrollView>
+
+              {}
+              {mode === 'free' ? renderFreeJournalingInput() : renderAssistantinput()}
 
               {loading && <Text style={styles.loading}>Communicating with my mental assistant...</Text>}
             </View>
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
-  assistantMessage: {
+  aiMessage: {
     alignSelf: 'flex-start',
     backgroundColor: '#f1f0f0',
     borderWidth: 1,
@@ -266,3 +266,4 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
+
