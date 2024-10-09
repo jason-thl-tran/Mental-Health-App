@@ -23,7 +23,7 @@ export default function Mood() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#FFFFF4",
+        backgroundColor: "#f5f5f5",
       }}
     >
       <Text style={stylesheet.journal}>How are you feeling today?</Text>
