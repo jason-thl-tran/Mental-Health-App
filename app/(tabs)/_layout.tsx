@@ -49,14 +49,20 @@ export default function RootLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="resources"
         options={{
-          title: "About",
+          title: "Resources",
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? "information" : "information"}
-              color={color}
-            />
+            <TabBarIcon name= "information-outline" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: "Settings",
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name= "settings-outline" color={color} />
           ),
         }}
       />
