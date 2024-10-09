@@ -9,22 +9,8 @@ export default function About() {
         {`Mood Flow is a wellness app designed to enhance your emotional well-being through interactive experiences. \n\nOur goal is to empower you to understand and improve your emotional states, fostering mindfulness and positivity in everyday life.`}
       </Text>
       <Text style={styles.developers}>
-        Developers: Zoie Bonnette, Jason Tran, Mac Diby
+       {' Developers: Zoie Bonnette, Jason Tran, \t\t\t\t MacArthur Diby '}
       </Text>
-      <View style={styles.arrow_back}>
-        <Svg
-          style={styles.icon}
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-        >
-          <Path
-            d="M3.825 9L9.425 14.6L8 16L0 8L8 0L9.425 1.4L3.825 7H16V9H3.825Z"
-            fill="#1D1B20"
-          />
-        </Svg>
-      </View>
     </View>
   );
 }
@@ -32,77 +18,45 @@ export default function About() {
 const styles = StyleSheet.create({
   iPhone16Plus14Container: {
     position: "relative",
-    flexShrink: 0,
-    height: 932,
-    width: 430,
-    backgroundColor: "rgba(255, 255, 255, 1)",
+    flex:1,
+    backgroundColor: "#f5f5f5",
     display: "flex",
     flexDirection: "column",
-    // alignItems: "flex-start",
-    rowGap: 0,
-    borderRadius: 0,
     justifyContent: "center",
     alignItems: "center",
-    flex: 1,
   },
   about: {
     position: "absolute",
     flexShrink: 0,
-    top: 44,
-    left: 148,
-    width: 134,
-    height: 65,
+    top: 64,
     textAlign: "center",
     color: "rgba(0, 0, 0, 1)",
     fontSize: 48,
-    fontFamily: "Nunito Sans",
-    fontWeight: "400",
+    fontFamily: "Arial",
+    fontWeight: "semibold",
   },
   descriptionText: {
     position: "absolute",
     flexShrink: 0,
     top: 147,
-    left: 22,
-    width: 393,
-    height: 528,
     textAlign: "left",
+    flexBasis:"auto",
     color: "rgba(0, 0, 0, 1)",
     fontSize: 32,
-    fontFamily: "Nunito Sans",
-    fontWeight: "400",
+    fontFamily: "Arial",
+    fontWeight: "regular",
+    margin:16
   },
   developers: {
     position: "absolute",
     flexShrink: 0,
-    top: 745,
-    left: 22,
-    width: 341,
-    height: 44,
+    top: 600,
     textAlign: "left",
     color: "rgba(0, 0, 0, 1)",
     fontSize: 20,
-    fontFamily: "Nunito Sans",
-    fontWeight: "400",
-  },
-  arrow_back: {
-    position: "absolute",
-    flexShrink: 0,
-    top: 18,
-    height: 24,
-    left: 21,
-    width: 24,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    rowGap: 0,
-  },
-  icon: {
-    position: "absolute",
-    flexShrink: 0,
-    top: 4,
-    right: 4,
-    bottom: 4,
-    left: 4,
-    overflow: "visible",
+    fontFamily: "Arial",
+    fontWeight: "regular",
+    marginTop:32,
+    margin:16
   },
 });
