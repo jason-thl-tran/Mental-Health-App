@@ -9,14 +9,12 @@ export default function Home() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#FFFFF4",
+        backgroundColor: "#f5f5f5",
       }}
     >
       <Text style={styles.moodFlow}>MoodFlow</Text>
       <Fontisto name="sun" size={275} style={styles.sunny} ></Fontisto>
       <FontAwesome5 name="circle" size={175} style={styles.sunnyout}></FontAwesome5>
-      {/* <Ionicons name="sunny-sharp" size={400} style={styles.sunny}></Ionicons> */}
-      {/* <Ionicons name="sunny-outline" size={395} style={styles.sunnyout}></Ionicons> */}
       <Text style={styles.beginyourjourneynow}>Begin your journey now</Text>
       <View style={styles.button}>
         <View style={styles.statelayer}>
