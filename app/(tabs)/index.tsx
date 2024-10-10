@@ -7,6 +7,24 @@ import { Calendar } from 'react-native-calendars';
 const Home = () => {
   const [selected, setSelected] = useState('');
 
+  const markedDates = {
+    '2024-09-28': { selected: true, selectedColor: 'red', selectedTextColor: 'black' },
+    '2024-09-29': { selected: true, selectedColor: 'red', selectedTextColor: 'black' },
+    '2024-09-30': { selected: true, selectedColor: 'yellow', selectedTextColor: 'black' },
+    '2024-10-01': { selected: true, selectedColor: 'yellow', selectedTextColor: 'black' },
+    '2024-10-02': { selected: true, selectedColor: 'red', selectedTextColor: 'black' },
+    '2024-10-03': { selected: true, selectedColor: 'yellow', selectedTextColor: 'black' },
+    '2024-10-04': { selected: true, selectedColor: 'green', selectedTextColor: 'black' },
+    '2024-10-05': { selected: true, selectedColor: 'red', selectedTextColor: 'black' },
+    '2024-10-06': { selected: true, selectedColor: 'red', selectedTextColor: 'black' },
+    '2024-10-07': { selected: true, selectedColor: 'yellow', selectedTextColor: 'black' },
+    '2024-10-08': { selected: true, selectedColor: 'green', selectedTextColor: 'black' },
+    '2024-10-09': { selected: true, selectedColor: 'green', selectedTextColor: 'black' },
+    '2024-10-10': { selected: true, selectedColor: 'green', selectedTextColor: 'black' },
+    '2024-10-11': { selected: true, selectedColor: 'green', selectedTextColor: 'black' },
+  };
+  
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView style={{ backgroundColor: 'white' }}>
@@ -21,9 +39,11 @@ const Home = () => {
                 setSelected(day.dateString);
               }}
               markedDates={{
-                [selected]: { selected: true, disableTouchEvent: true, selectedDotColor: 'orange' }
+                ...markedDates,
+                [selected]: { selected: true }
               }}
             />
+            <Text style={styles.streak}>14 Day Streak!</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -38,6 +58,12 @@ const styles = StyleSheet.create({
     textAlign: 'center', 
     marginBottom: 20, 
   },
+  streak: {
+    fontSize: 46,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 80
+  }
 });
 
 export default Home;
