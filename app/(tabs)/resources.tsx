@@ -1,9 +1,8 @@
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import React from 'react';
-import Markdown from 'react-native-markdown-display';
-import { ScrollView } from 'react-native-gesture-handler';
+import Markdown from 'react-native-markdown-display'
+import { ScrollView } from 'react-native-gesture-handler'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
 const resourcesContent = `
 # Mental Health Resources
 

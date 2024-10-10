@@ -20,8 +20,7 @@ const Home = () => {
     '2024-10-07': { startingDay: true, color: 'yellow', textColor: 'black' },
     '2024-10-08': { endingDay: true, color: 'yellow', textColor: 'black' },
     '2024-10-09': { startingDay: true, color: 'green', textColor: 'black' },
-    '2024-10-10': { color: 'green', textColor: 'black' },
-    '2024-10-11': { endingDay: true, color: 'green', textColor: 'black' }
+    '2024-10-10': { endingDay: true, color: 'green', textColor: 'black' }
   };
   
   
@@ -43,10 +42,10 @@ const Home = () => {
               }}
               markedDates={{
                 ...markedDates,
-                [selected]: { selected: true }
+                [selected]: { selected: true, color: 'black', textColor: 'white' },
               }}
             />
-            <Text style={styles.streak}>14 Day Streak!</Text>
+            <Text style={styles.streak}>13 Day Streak!</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
