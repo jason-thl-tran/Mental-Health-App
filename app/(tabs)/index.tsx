@@ -8,21 +8,23 @@ const Home = () => {
   const [selected, setSelected] = useState('');
 
   const markedDates = {
-    '2024-09-28': { selected: true, selectedColor: 'red', selectedTextColor: 'black' },
-    '2024-09-29': { selected: true, selectedColor: 'red', selectedTextColor: 'black' },
-    '2024-09-30': { selected: true, selectedColor: 'yellow', selectedTextColor: 'black' },
-    '2024-10-01': { selected: true, selectedColor: 'yellow', selectedTextColor: 'black' },
-    '2024-10-02': { selected: true, selectedColor: 'red', selectedTextColor: 'black' },
-    '2024-10-03': { selected: true, selectedColor: 'yellow', selectedTextColor: 'black' },
-    '2024-10-04': { selected: true, selectedColor: 'green', selectedTextColor: 'black' },
-    '2024-10-05': { selected: true, selectedColor: 'red', selectedTextColor: 'black' },
-    '2024-10-06': { selected: true, selectedColor: 'red', selectedTextColor: 'black' },
-    '2024-10-07': { selected: true, selectedColor: 'yellow', selectedTextColor: 'black' },
-    '2024-10-08': { selected: true, selectedColor: 'green', selectedTextColor: 'black' },
-    '2024-10-09': { selected: true, selectedColor: 'green', selectedTextColor: 'black' },
-    '2024-10-10': { selected: true, selectedColor: 'green', selectedTextColor: 'black' },
-    '2024-10-11': { selected: true, selectedColor: 'green', selectedTextColor: 'black' },
+    '2024-09-28': { startingDay: true, color: 'red', textColor: 'black' },
+    '2024-09-29': { endingDay: true, color: 'red', textColor: 'black' },
+    '2024-09-30': { startingDay: true, color: 'yellow', textColor: 'black' },
+    '2024-10-01': { color: 'yellow', textColor: 'black' },
+    '2024-10-02': { color: 'yellow', textColor: 'black' },
+    '2024-10-03': { endingDay: true, color: 'yellow', textColor: 'black' },
+    '2024-10-04': { color: 'green', TextColor: 'black' },
+    '2024-10-05': { startingDay: true, color: 'red', textColor: 'black' },
+    '2024-10-06': { endingDay: true, color: 'red', textColor: 'black' },
+    '2024-10-07': { startingDay: true, color: 'yellow', textColor: 'black' },
+    '2024-10-08': { endingDay: true, color: 'yellow', textColor: 'black' },
+    '2024-10-09': { startingDay: true, color: 'green', textColor: 'black' },
+    '2024-10-10': { color: 'green', textColor: 'black' },
+    '2024-10-11': { endingDay: true, color: 'green', textColor: 'black' }
   };
+  
+  
   
 
   return (
@@ -35,7 +37,8 @@ const Home = () => {
           <View style={{ padding: 16 }}>
             <Text style={styles.heading}>Welcome Home!</Text>
             <Calendar
-              onDayPress={day => {
+            markingType="period"
+              onDayPress={(day: { dateString: React.SetStateAction<string>; }) => {
                 setSelected(day.dateString);
               }}
               markedDates={{
