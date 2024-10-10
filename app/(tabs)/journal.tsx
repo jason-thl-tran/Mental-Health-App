@@ -121,7 +121,7 @@ export default function Journal() {
                   ]}
                   onPress={() => handleModeSwitch("ai")}
                 >
-                  <Text style={styles.modeButtonText}>AI Prompt</Text>
+                  <Text style={styles.modeButtonText}>Mental health assistant</Text>
                 </TouchableOpacity>
               </View>
 
